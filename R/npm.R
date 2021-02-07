@@ -77,8 +77,8 @@ npm_run_process <- function(..., s, d, f){
   output <- jab(
     system_2(...),
     w = function(w){
-      cli_process_failed()
-      w("failed to run command")
+      cli_process_done()
+      NULL
     },
     e = function(e){
       cli_process_failed()
