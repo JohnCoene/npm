@@ -9,3 +9,7 @@ npm_init()
 \description{
 Initialise an NPM project.
 }
+\examples{
+\dontrun{npm_init()}
+
+}

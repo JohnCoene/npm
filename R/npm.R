@@ -101,6 +101,9 @@ npm_run_process <- function(..., s, d, f){
 #' 
 #' Initialise an NPM project.
 #' 
+#' @examples 
+#' \dontrun{npm_init()}
+#' 
 #' @export 
 npm_init <- function(){
   npm_run_process(
