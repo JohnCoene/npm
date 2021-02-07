@@ -1,13 +1,12 @@
-Package: parcel
-Title: Use 'parcel.js' to Write 'JavaScript'
+Package: npm
+Title: Interract with 'NPM'
 Version: 1.0.0.9000
 Authors@R: 
     person(given = "John",
            family = "Coene",
            role = c("aut", "cre"),
            email = "jcoenep@gmail.com")
-Description: Use 'parcel.js' with more robust 'JavaScript' in 
-    projects and packages.
+Description: Interact with 'NPM' from the R Console.
 License: LGPL (>= 3)
 Encoding: UTF-8
 LazyData: true
