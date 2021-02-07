@@ -71,7 +71,7 @@ npm_run <- function(...){
 
 #' @keywords internal
 #' @importFrom cli cli_process_start cli_process_failed cli_process_done
-#' @importFrom erratum jab w e is.e is.w
+#' @importFrom erratum jab w e is.e is.w enforce
 npm_run_process <- function(..., s, d, f){
   cli_process_start(s, d, f)
   output <- jab(
@@ -86,10 +86,7 @@ npm_run_process <- function(..., s, d, f){
     }
   )
   
-  if(is.e(output) || is.w(output))
-    return()
-
-  cli_process_done()
+  enforce(output)
   
   invisible(output)
 }
@@ -219,7 +216,7 @@ npm_audit <- function(fix = FALSE){
   )
 }
 
-#' Outdated
+#' Outdated Packages
 #' 
 #' Get outdated NPM packages.
 #' 
@@ -229,4 +226,21 @@ npm_audit <- function(fix = FALSE){
 #' @export 
 npm_outdated <- function(){
   system_2("outdated")
+}
+
+#' Update Packages
+#' 
+#' Update NPM packages.
+#' 
+#' @examples
+#' \dontrun{npm_update()} 
+#' 
+#' @export 
+npm_update <- function(){
+  npm_run_process(
+    "update",
+    s = "Updating packages",
+    d = "Updated packages",
+    f = "Failed to update packages"
+  )
 }

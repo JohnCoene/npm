@@ -2,7 +2,7 @@
 % Please edit documentation in R/npm.R
 \name{npm_outdated}
 \alias{npm_outdated}
-\title{Outdated}
+\title{Outdated Packages}
 \usage{
 npm_outdated()
 }
