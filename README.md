@@ -25,3 +25,4 @@ npm_install("browserify", scope = "global")
 npm_install()
 ```
 
+Also see [yarn](https://github.com/JohnCoene/yarn).
