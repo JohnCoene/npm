@@ -60,9 +60,8 @@ npm_find <- function(){
 #' 
 #' @importFrom erratum jab enforce w e
 npm_run <- function(...){
-  path <- npm_path_get()
   output <- jab(
-    system2(path, c(...), stdout = TRUE, stderr = TRUE),
+    system_2(...),
     w = w("failed to run command"),
     e = e("failed to run command")
   )
@@ -74,11 +73,9 @@ npm_run <- function(...){
 #' @importFrom cli cli_process_start cli_process_failed cli_process_done
 #' @importFrom erratum jab w e is.e is.w
 npm_run_process <- function(..., s, d, f){
-  path <- npm_path_get()
-
   cli_process_start(s, d, f)
   output <- jab(
-    system2(path, c(...), stdout = TRUE, stderr = TRUE),
+    system_2(...),
     w = function(w){
       cli_process_failed()
       w("failed to run command")
@@ -95,6 +92,12 @@ npm_run_process <- function(..., s, d, f){
   cli_process_done()
   
   invisible(output)
+}
+
+#' @keywords internal
+system_2 <- function(...){
+  path <- npm_path_get()
+  system2(path, c(...), stdout = TRUE, stderr = TRUE)
 }
 
 #' NPM Init
@@ -191,4 +194,39 @@ packages_flat <- function(...){
     })
 
   paste0(pkgs, collapse = ", ")
+}
+
+#' NPM Audit Fix
+#' 
+#' Audit NPM packages and fix potential issues.
+#' 
+#' @param fix Whether to also fix issues.
+#' 
+#' @examples
+#' \dontrun{npm_audit()} 
+#' 
+#' @export 
+npm_audit <- function(fix = FALSE){
+  fix_flag <- ""
+  if(fix) fix_flag <- "fix"
+  
+  npm_run_process(
+    "audit", 
+    fix_flag,
+    s = "Auditing packages",
+    d = "Audited packages",
+    f = "Failed to audit packages"
+  )
+}
+
+#' Outdated
+#' 
+#' Get outdated NPM packages.
+#' 
+#' @examples
+#' \dontrun{npm_outdated()} 
+#' 
+#' @export 
+npm_outdated <- function(){
+  system_2("outdated")
 }
