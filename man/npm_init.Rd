@@ -7,5 +7,5 @@
 npm_init()
 }
 \description{
-NPM Init
+Initialise an NPM project.
 }

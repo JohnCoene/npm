@@ -4,13 +4,19 @@
 \alias{npm_install}
 \title{NPM Install}
 \usage{
-npm_install(..., scope = c("dev", "prod", "global"))
+npm_install(..., scope = c("dev", "prod", "exact", "global", "optional"))
 }
 \arguments{
 \item{...}{Names of packages to install.}
 
-\item{scope}{Scope of the installation of the packages.}
+\item{scope}{Scope of the installation of the packages.
+This is ignored if no packages are passed to the three
+dots construct (\code{...}).}
 }
 \description{
 NPM Install
+}
+\examples{
+\dontrun{npm_install("browserify", scope = "global")}
+
 }

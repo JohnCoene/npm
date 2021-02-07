@@ -99,6 +99,8 @@ npm_run_process <- function(..., s, d, f){
 
 #' NPM Init
 #' 
+#' Initialise an NPM project.
+#' 
 #' @export 
 npm_init <- function(){
   npm_run_process(
@@ -113,6 +115,11 @@ npm_init <- function(){
 #' 
 #' @param ... Names of packages to install.
 #' @param scope Scope of the installation of the packages.
+#' This is ignored if no packages are passed to the three
+#' dots construct (`...`).
+#' 
+#' @examples 
+#' \dontrun{npm_install("browserify", scope = "global")}
 #' 
 #' @export 
 npm_install <- function(
@@ -128,6 +135,11 @@ npm_install <- function(
 
   msgs <- package_message(...)
   scope <- scope2flag(scope)
+
+  # override scope if no pkgs passed
+  if(length(...) == 0)
+    scope <- ""
+
   npm_run_process("install", scope, ..., s = msgs$s, d = msgs$d, f = msgs$f)
 }
 
