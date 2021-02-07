@@ -115,7 +115,17 @@ npm_init <- function(){
 #' @param scope Scope of the installation of the packages.
 #' 
 #' @export 
-npm_install <- function(..., scope = c("dev", "prod", "global")){
+npm_install <- function(
+  ..., 
+  scope = c(
+    "dev", 
+    "prod", 
+    "exact",
+    "global",
+    "optional"
+  )
+){
+
   msgs <- package_message(...)
   scope <- scope2flag(scope)
   npm_run_process("install", scope, ..., s = msgs$s, d = msgs$d, f = msgs$f)
@@ -129,7 +139,9 @@ scope2flag <- function(scope = c("dev", "prod", "global")){
     scope,
     dev = "--save-dev",
     prod = "--save",
-    "global" = "--global"
+    global = "--global",
+    optional = "--save-optional",
+    exact = "--save-exact"
   )
 }
 
