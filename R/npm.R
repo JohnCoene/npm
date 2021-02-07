@@ -67,7 +67,7 @@ npm_run <- function(...){
     e = e("failed to run command")
   )
   enforce(output)
-  return(output)
+  invisible(output)
 }
 
 #' @keywords internal
@@ -94,5 +94,74 @@ npm_run_process <- function(..., s, d, f){
 
   cli_process_done()
   
-  return(output)
+  invisible(output)
+}
+
+#' NPM Init
+#' 
+#' @export 
+npm_init <- function(){
+  npm_run_process(
+    "init", "-y",
+    s = "Initialising npm",
+    d = "Initialised npm",
+    f = "Failed to initialise npm"
+  )
+}
+
+#' NPM Install
+#' 
+#' @param ... Names of packages to install.
+#' @param scope Scope of the installation of the packages.
+#' 
+#' @export 
+npm_install <- function(..., scope = c("dev", "prod", "global")){
+  msgs <- package_message(...)
+  scope <- scope2flag(scope)
+  npm_run_process("install", scope, ..., s = msgs$s, d = msgs$d, f = msgs$f)
+}
+
+#' @keywords internal
+scope2flag <- function(scope = c("dev", "prod", "global")){
+  scope <- match.arg(scope)
+
+  switch(
+    scope,
+    dev = "--save-dev",
+    prod = "--save",
+    "global" = "--global"
+  )
+}
+
+#' Package Installation Messages
+#' 
+#' Creates messages for installation process.
+#' 
+#' @keywords internal
+package_message <- function(...){
+  pkgs_flat <- packages_flat(...)
+
+  list(
+    s = sprintf("Installing %s", pkgs_flat),
+    d = sprintf("Installed %s", pkgs_flat),
+    f = sprintf("Failed to installed %s", pkgs_flat)
+  )
+}
+
+#' Flatten Packages
+#' 
+#' Flatten packages for creating the message.
+#' 
+#' @keywords internal
+packages_flat <- function(...){
+  pkgs <- c(...)
+
+  if(length(pkgs) == 0)
+    pkgs <- "packages from {.val `package.json`}"
+  else 
+    pkgs <- sapply(pkgs, function(pak){
+      sprintf("{.val `%s`}", pak)
+    })
+
+  paste0(pkgs, collapse = ", ")
 }
