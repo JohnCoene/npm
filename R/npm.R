@@ -89,6 +89,8 @@ npm_run_process <- function(..., s, d, f){
   )
   
   enforce(output)
+
+  cli_process_done()
   
   invisible(output)
 }
