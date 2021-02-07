@@ -12,4 +12,3 @@ npm_run(...)
 \description{
 NPM Run
 }
-\keyword{internal}

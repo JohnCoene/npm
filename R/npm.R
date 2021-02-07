@@ -56,9 +56,9 @@ npm_find <- function(){
 #' 
 #' @param ... arguments to pass to the `npm` command.
 #' 
-#' @keywords internal
-#' 
 #' @importFrom erratum jab enforce w e
+#' 
+#' @export
 npm_run <- function(...){
   output <- jab(
     system_2(...),

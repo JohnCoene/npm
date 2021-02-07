@@ -22,7 +22,7 @@ npm_init()
 
 npm_install("browserify", scope = "global")
 
-npm_install()
+npm_run("--version")
 ```
 
 Also see [yarn](https://github.com/JohnCoene/yarn).
