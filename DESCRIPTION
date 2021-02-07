@@ -1,0 +1,20 @@
+Package: parcel
+Title: Use 'parcel.js' to Write 'JavaScript'
+Version: 1.0.0.9000
+Authors@R: 
+    person(given = "John",
+           family = "Coene",
+           role = c("aut", "cre"),
+           email = "jcoenep@gmail.com")
+Description: Use 'parcel.js' with more robust 'JavaScript' in 
+    projects and packages.
+License: LGPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    assertthat,
+    crayon,
+    cli,
+    erratum
