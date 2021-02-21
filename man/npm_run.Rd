@@ -9,6 +9,9 @@ npm_run(...)
 \arguments{
 \item{...}{arguments to pass to the \code{npm} command.}
 }
+\value{
+Invisibly returns the output of the command.
+}
 \description{
 NPM Run
 }
