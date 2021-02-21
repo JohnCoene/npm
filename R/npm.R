@@ -56,24 +56,21 @@ npm_find <- function(){
 #' 
 #' @param ... arguments to pass to the `npm` command.
 #' 
-#' @importFrom erratum jab enforce w e
+#' @importFrom erratum jab resolve w e
 #' 
 #' @export
 npm_run <- function(...){
   output <- jab(
     system_2(...),
-    w = function(w){
-      NULL
-    },
     e = e("failed to run command")
   )
-  enforce(output)
+  resolve(output)
   invisible(output)
 }
 
 #' @keywords internal
 #' @importFrom cli cli_process_start cli_process_failed cli_process_done
-#' @importFrom erratum jab w e is.e is.w enforce
+#' @importFrom erratum jab w e is.e is.w resolve
 npm_run_process <- function(..., s, d, f){
   cli_process_start(s, d, f)
   output <- jab(
@@ -88,7 +85,7 @@ npm_run_process <- function(..., s, d, f){
     }
   )
   
-  enforce(output)
+  resolve(output)
 
   cli_process_done()
   
