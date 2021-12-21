@@ -56,13 +56,13 @@ npm_find <- function(){
 #' 
 #' @param ... arguments to pass to the `npm` command.
 #' 
-#' @importFrom erratum jab resolve w e is.problem
+#' @importFrom erratum bash resolve w e is.problem
 #' 
 #' @return Invisibly returns the output of the command.
 #' 
 #' @export
 npm_run <- function(...){
-  output <- jab(system_2(...))
+  output <- bash(system_2(...))
   
   if(is.problem(output))
     resolve(output)
@@ -72,10 +72,10 @@ npm_run <- function(...){
 
 #' @keywords internal
 #' @importFrom cli cli_process_start cli_process_failed cli_process_done
-#' @importFrom erratum jab w e is.e is.w resolve is.problem
+#' @importFrom erratum bash w e is.e is.w resolve is.problem
 npm_run_process <- function(..., s, d, f){
   cli_process_start(s, d, f)
-  output <- jab(
+  output <- bash(
     system_2(...),
     w = function(war){
       cli_process_done()
