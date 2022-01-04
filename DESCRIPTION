@@ -6,7 +6,7 @@ Authors@R:
            family = "Coene",
            role = c("aut", "cre"),
            email = "jcoenep@gmail.com")
-Description: Interact with 'NPM' from the R Console.
+Description: Interact with 'NPM' from the 'R Console' to automate tasks and ease access to 'JavaScript'.
 License: LGPL (>= 3)
 Encoding: UTF-8
 LazyData: true

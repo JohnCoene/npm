@@ -63,9 +63,7 @@ npm_find <- function(){
 #' @export
 npm_run <- function(...){
   output <- bash(system_2(...))
-  
   resolve(output)
-  
   invisible(output)
 }
 
