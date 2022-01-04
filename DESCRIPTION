@@ -16,6 +16,4 @@ Imports:
     assertthat,
     crayon,
     cli,
-    erratum (>= 2.1.0.9000)
-Remotes:
-    devOpifex/erratum
+    erratum (>= 2.2.0)
