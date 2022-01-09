@@ -56,7 +56,7 @@ npm_find <- function(){
 #' 
 #' @param ... arguments to pass to the `npm` command.
 #' 
-#' @importFrom erratum bash resolve w e
+#' @importFrom erratum bash resolve
 #' 
 #' @return Invisibly returns the output of the command.
 #' 
@@ -69,7 +69,7 @@ npm_run <- function(...){
 
 #' @keywords internal
 #' @importFrom cli cli_process_start cli_process_failed cli_process_done
-#' @importFrom erratum bash w e is.e is.w resolve
+#' @importFrom erratum bash w e resolve
 npm_run_process <- function(..., s, d, f){
   cli_process_start(s, d, f)
   output <- bash(
@@ -183,14 +183,13 @@ package_message <- function(...){
 packages_flat <- function(...){
   pkgs <- c(...)
 
-  if(length(pkgs) == 0)
-    pkgs <- "packages from {.val `package.json`}"
-  else 
-    pkgs <- sapply(pkgs, function(pak){
+  pkgs_out <- "packages from {.val `package.json`}"
+  if(length(pkgs) > 0)
+    pkgs_out <- sapply(pkgs, function(pak){
       sprintf("{.val `%s`}", pak)
     })
 
-  paste0(pkgs, collapse = ", ")
+  paste0(pkgs_out, collapse = ", ")
 }
 
 #' NPM Audit Fix
