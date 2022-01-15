@@ -1,12 +1,13 @@
 Package: npm
-Title: Interract with 'NPM'
+Title: Interact with 'NPM'
 Version: 1.0.0.9000
 Authors@R: 
     person(given = "John",
            family = "Coene",
            role = c("aut", "cre"),
            email = "jcoenep@gmail.com")
-Description: Interact with 'NPM' from the 'R Console' to automate tasks and ease access to 'JavaScript'.
+Description: Interact with 'NPM' from the 'R Console' to automate
+    tasks and ease access to 'JavaScript'.
 License: LGPL (>= 3)
 Encoding: UTF-8
 LazyData: true
