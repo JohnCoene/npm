@@ -4,7 +4,7 @@
 
 # npm
 
-Interact with [npm](https://npmjs.org) from the R console.
+Interact with [npm](https://npmjs.org/) from the R console.
 
 ## Installation
 
