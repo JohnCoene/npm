@@ -1,3 +1,5 @@
 ^LICENSE\.md$
 ^\.github$
 makefile
+^CRAN-SUBMISSION$
+^cran-comments\.md$
