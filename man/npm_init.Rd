@@ -6,6 +6,10 @@
 \usage{
 npm_init()
 }
+\value{
+Invisibly returns the output of the command
+as a \code{character} vector.
+}
 \description{
 Initialise an NPM project.
 }

@@ -60,6 +60,9 @@ npm_find <- function(){
 #' 
 #' @return Invisibly returns the output of the command.
 #' 
+#' @return Invisibly returns the output of the command
+#' as a `character` vector.
+#' 
 #' @export
 npm_run <- function(...){
   output <- bash(system_2(...))
@@ -91,6 +94,10 @@ npm_run_process <- function(..., s, d, f){
   invisible(output)
 }
 
+#' Wrapper on System Call
+#' 
+#' A soft wrapper on system call.
+#' 
 #' @keywords internal
 system_2 <- function(..., stdout = "", stderr = ""){
   path <- npm_path_get()
@@ -103,6 +110,9 @@ system_2 <- function(..., stdout = "", stderr = ""){
 #' 
 #' @examples 
 #' \dontrun{npm_init()}
+#' 
+#' @return Invisibly returns the output of the command
+#' as a `character` vector.
 #' 
 #' @export 
 npm_init <- function(){
@@ -124,6 +134,9 @@ npm_init <- function(){
 #' @examples 
 #' \dontrun{npm_install("browserify", scope = "global")}
 #' 
+#' @return Invisibly returns the output of the command
+#' as a `character` vector.
+#' 
 #' @export 
 npm_install <- function(
   ..., 
@@ -143,7 +156,14 @@ npm_install <- function(
   if(length(...) == 0)
     scope <- ""
 
-  npm_run_process("install", scope, ..., s = msgs$s, d = msgs$d, f = msgs$f)
+  npm_run_process(
+    "install", 
+    scope,
+    ..., 
+    s = msgs$s, 
+    d = msgs$d, 
+    f = msgs$f
+  )
 }
 
 #' @keywords internal
@@ -201,6 +221,9 @@ packages_flat <- function(...){
 #' @examples
 #' \dontrun{npm_audit()} 
 #' 
+#' @return Invisibly returns the output of the command
+#' as a `character` vector.
+#' 
 #' @export 
 npm_audit <- function(fix = FALSE){
   fix_flag <- ""
@@ -222,6 +245,9 @@ npm_audit <- function(fix = FALSE){
 #' @examples
 #' \dontrun{npm_outdated()} 
 #' 
+#' @return The output of the command
+#' as a `character` vector.
+#' 
 #' @export 
 npm_outdated <- function(){
   system_2("outdated")
@@ -233,6 +259,9 @@ npm_outdated <- function(){
 #' 
 #' @examples
 #' \dontrun{npm_update()} 
+#' 
+#' @return Invisibly returns the output of the command
+#' as a `character` vector.
 #' 
 #' @export 
 npm_update <- function(){

@@ -6,6 +6,10 @@
 \usage{
 npm_outdated()
 }
+\value{
+The output of the command
+as a \code{character} vector.
+}
 \description{
 Get outdated NPM packages.
 }

@@ -11,6 +11,9 @@ npm_run(...)
 }
 \value{
 Invisibly returns the output of the command.
+
+Invisibly returns the output of the command
+as a \code{character} vector.
 }
 \description{
 NPM Run

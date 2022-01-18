@@ -6,6 +6,10 @@
 \usage{
 npm_update()
 }
+\value{
+Invisibly returns the output of the command
+as a \code{character} vector.
+}
 \description{
 Update NPM packages.
 }
