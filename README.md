@@ -17,11 +17,10 @@ remotes::install_github("JohnCoene/npm")
 
 ``` r
 library(npm)
-
-npm_init()
-
 npm_install("browserify", scope = "global")
 
+npm_init()
+npm_install("jquerjqueryy")
 npm_run("--version")
 ```
 
