@@ -9,6 +9,10 @@ npm_audit(fix = FALSE)
 \arguments{
 \item{fix}{Whether to also fix issues.}
 }
+\value{
+Invisibly returns the output of the command
+as a \code{character} vector.
+}
 \description{
 Audit NPM packages and fix potential issues.
 }

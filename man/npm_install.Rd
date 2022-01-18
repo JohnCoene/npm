@@ -13,6 +13,10 @@ npm_install(..., scope = c("dev", "prod", "exact", "global", "optional"))
 This is ignored if no packages are passed to the three
 dots construct (\code{...}).}
 }
+\value{
+Invisibly returns the output of the command
+as a \code{character} vector.
+}
 \description{
 NPM Install
 }
