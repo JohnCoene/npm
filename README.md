@@ -8,6 +8,14 @@ Interact with [npm](https://www.npmjs.com/) from the R console.
 
 ## Installation
 
+__Stable__
+
+``` r
+install.packages("npm")
+```
+
+__Development__
+
 ``` r
 # install.packages("remotes")
 remotes::install_github("JohnCoene/npm")
