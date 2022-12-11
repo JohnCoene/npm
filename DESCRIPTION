@@ -16,6 +16,7 @@ RoxygenNote: 7.1.2
 Imports: 
     assertthat,
     crayon,
-    cli
+    cli,
+    erratum
 Remotes:
     devOpifex/erratum
