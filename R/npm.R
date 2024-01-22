@@ -99,7 +99,7 @@ npm_run_process <- function(..., s, d, f){
 #' A soft wrapper on system call.
 #' 
 #' @keywords internal
-system_2 <- function(..., stdout = "", stderr = ""){
+system_2 <- function(..., stdout = TRUE, stderr = TRUE){
   path <- npm_path_get()
   system2(path, c(...), stdout = stdout, stderr = stderr)
 }
@@ -149,6 +149,7 @@ npm_install <- function(
   )
 ){
 
+  scope <- match.arg(scope)
   msgs <- package_message(...)
   scope <- scope2flag(scope)
 

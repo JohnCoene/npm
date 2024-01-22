@@ -20,6 +20,6 @@ by itself if NPM was installed correctly.
 }
 \section{Functions}{
 \itemize{
-\item \code{npm_path_get}: Get NPM path
-}}
+\item \code{npm_path_get()}: Get NPM path
 
+}}

@@ -4,7 +4,7 @@
 \alias{system_2}
 \title{Wrapper on System Call}
 \usage{
-system_2(..., stdout = "", stderr = "")
+system_2(..., stdout = TRUE, stderr = TRUE)
 }
 \description{
 A soft wrapper on system call.
